@@ -1,1 +1,277 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<header>
+ <h1> Sierra Leone Quiz App</h1> 
+</header>
+<body>
+  <main>
+    <section id="login-container">
+      <h2 id="login-h2">Welcome to the Ultimate Sierra Leone Quiz!</h2>
+      <h4 id="login-h4">Sign in to test your knowledge and challenge your friends.</h4>
+<form>
+     <label for="first-name">First Name: </label>
+      <input type="text" id="first-name" placeholder="Type in your first name">
+      <label for="last-name">Last Name: </label>
+      <input type="text" id="last-name" placeholder="Type in your last name">
+     <label for="age">Age: </label>
+     <input type="number" id="age" placeholder="Age must be below 18 years">
+</form>
+    <button id="proceed-btn" class="btns" onclick="proceedToQuiz()">Proceed</button>
+      <p>If already participated, click to <button id="alrdy-btn" onclick="registered1()">View Participants.</button></p>
+    </section>
+    <section id="welcome-container" class="hidden">
+      <div id="welcome-close-div" class="divs">
+        <button id="welcome-close-btn" class="close-btns" onclick="closeWelcomeDialog()">❌</button>
+      </div>
+      <h3 id="welcome-header-text"></h3>
+      <h3 id="welcome-h3">Test Your Knowledge About the Land of Diamonds and Hospitality</h3>
+      <details>
+        <summary>Intoduction</summary>
+        <p class="welcome-para">Welcome to the Ultimate Sierra Leone Quiz, where you can challenge yourself and learn amazing facts about this beautiful West African nation! 🇸🇱</p>
+        <p class="welcome-para">From its rich history and diverse culture to its breathtaking landscapes and remarkable people, Sierra Leone has so much to explore. Whether you're a proud Sierra Leonean or just curious about this incredible country, this quiz is designed to educate and entertain.</p>
+        <p class="welcome-para">Are you ready to test your knowledge? Let’s begin! 🎉</p>
+        <button id="quiz-btn" class="btns" onclick="startQuiz()">Start Quiz</button>
+      </details>
+    </section>
+        <dialog id="dialog-box">
+        <p>Do you want to quit?</p>
+        <button class="dialog-btns" onclick="yesDialog()">Yes</button> <button class="dialog-btns" onclick="noDialog()">No</button>
+      </dialog>
+    <section id="quiz-container" class="hidden">
+      <div id="quiz-close-div" class="divs">
+        <button id="quiz-close-btn" class="close-btns" onclick="closeQuizContainer()">❌</button>
+      </div>
+      <h4 id="quiz-header">🧠 30 Quiz Questions & Answers About Sierra Leone</h4>
+      <p id="score-para">Your Score: <strong id="score"></strong></p>
+      <details>
+        <summary>🏛️ History & Politics</summary>
+        <p>1️⃣ What year did Sierra Leone gain independence?</p>
+        <label for="answer1">Answer: </label>
+        <input type="number" id="answer1" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" onclick="answer1()" id="ansa1-btn">Check answer</button>
+        <h5 id="answer1-output"></h5>
+        <hr>
+      <p>2️⃣ Who was the first Prime Minister of Sierra Leone?</p>
+        <label for="answer2">Answer: </label>
+        <input type="text" id="answer2" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" onclick="answer2()" id="ansa2-btn">Check answer</button>
+        <h5 id="answer2-output"></h5>
+      <hr>
+        <p>3️⃣ What is the capital city of Sierra Leone?</p>
+        <label for="answer3">Answer: </label>
+        <input type="text" id="answer3" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa3-btn" onclick="answer3()">Check answer</button>
+        <h5 id="answer3-output"></h5>
+      <hr>
+        <p>4️⃣ Which European country colonized Sierra Leone?</p>
+        <label for="answer4">Answer: </label>
+        <input type="text" id="answer4" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa4-btn" onclick="answer4()">Check answer</button>
+        <h5 id="answer4-output"></h5>
+      <hr>
+        <p>5️⃣ What was the name of the war that lasted from 1991 to 2002?</p>
+       <label for="answer5">Answer: </label>
+        <input type="text" id="answer5" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa5-btn" onclick="answer5()">Check answer</button>
+        <h5 id="answer5-output"></h5>
+      <hr>
+        <p>6️⃣ Who was the first president of Sierra Leone?</p>
+        <label for="answer6">Answer: </label>
+        <input type="text" id="answer6" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa6-btn" onclick="answer6()">Check answer</button>
+        <h5 id="answer6-output"></h5>
+      <hr>
+        <p>7️⃣ What is the name of the official residence of the President of Sierra Leone?</p>
+        <label for="answer7">Answer: </label>
+        <input type="text" id="answer7" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa7-btn" onclick="answer7()">Check answer</button>
+        <h5 id="answer7-output"></h5>
+      <hr> 
+        <p>8️⃣ What is the name of Sierra Leone’s national parliament?</p>
+        <label for="answer8">Answer: </label>
+        <input type="text" id="answer8" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa8-btn" onclick="answer8()">Check answer</button>
+        <h5 id="answer8-output"></h5>
+      <hr>
+        <p>9️⃣ Which international court tried war criminals from the Sierra Leone Civil War?</p>
+        <label for="answer9">Answer: </label>
+        <input type="text" id="answer9" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa9-btn" onclick="answer9()">Check answer</button>
+        <h5 id="answer9-output"></h5>
+      <hr>
+        <p>🔟 When did Sierra Leone become a republic?</p>
+         <label for="answer10">Answer: </label>
+        <input type="number" id="answer10" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa10-btn" onclick="answer10()">Check answer</button>
+        <h5 id="answer10-output"></h5>
+      <hr>
+      </details>
+      <details>
+        <summary>🌍 Geography & Nature</summary>
+        <p>1️⃣1️⃣ What is the highest mountain in Sierra Leone?</p>
+         <label for="answer11">Answer: </label>
+        <input type="text" id="answer11" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa11-btn" onclick="answer11()">Check answer</button>
+        <h5 id="answer11-output"></h5>
+      <hr>
+        <p>1️⃣2️⃣ What is the largest natural harbor in Africa, located in Sierra Leone?</p>
+         <label for="answer12">Answer: </label>
+        <input type="text" id="answer12" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa12-btn" onclick="answer12()">Check answer</button>
+        <h5 id="answer12-output"></h5>
+      <hr>
+        <p>1️⃣3️⃣ Sierra Leone is bordered by which two countries?</p>
+          <label for="answer13">Answer: </label>
+        <input type="text" id="answer13" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa13-btn" onclick="answer13()">Check answer</button>
+        <h5 id="answer13-output"></h5>
+      <hr>
+        <p>1️⃣4️⃣ What is the longest river in Sierra Leone?</p>
+        <label for="answer14">Answer: </label>
+        <input type="text" id="answer14" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa14-btn" onclick="answer14()">Check answer</button>
+        <h5 id="answer14-output"></h5>
+      <hr>
+        <p>1️⃣5️⃣ Which ocean borders Sierra Leone to the west?</p>
+        <label for="answer15">Answer: </label>
+        <input type="text" id="answer15" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa15-btn" onclick="answer15()">Check answer</button>
+        <h5 id="answer15-output"></h5>
+      <hr>  
+        <p>1️⃣6️⃣ What is the largest island in Sierra Leone?</p>
+        <label for="answer16">Answer: </label>
+        <input type="text" id="answer16" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa16-btn" onclick="answer16()">Check answer</button>
+        <h5 id="answer16-output"></h5>
+      <hr>
+        <p>1️⃣7️⃣ What is the name of the national park known for protecting chimpanzees?</p>
+        <label for="answer17">Answer: </label>
+        <input type="text" id="answer17" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa17-btn" onclick="answer17()">Check answer</button>
+        <h5 id="answer17-output"></h5>
+      <hr>
+        <p>1️⃣8️⃣ What is the main mineral resource Sierra Leone is known for?</p>
+        <label for="answer18">Answer: </label>
+        <input type="text" id="answer18" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa18-btn" onclick="answer18()">Check answer</button>
+        <h5 id="answer18-output"></h5>
+      <hr> 
+        <p>1️⃣9️⃣ What is the name of the famous beach in Freetown?</p>
+        <label for="answer19">Answer: </label>
+        <input type="text" id="answer19" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa19-btn" onclick="answer19()">Check answer</button>
+        <h5 id="answer19-output"></h5>
+      <hr>
+        <p>2️⃣0️⃣ What type of climate does Sierra Leone have?</p>
+        <label for="answer20">Answer: </label>
+        <input type="text" id="answer20" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa20-btn" onclick="answer20()">Check answer</button>
+        <h5 id="answer20-output"></h5>
+      <hr>        
+      </details>
+      <details>
+        <summary>🎭 Culture & People</summary>
+        <p>2️⃣1️⃣ What is the most widely spoken language in Sierra Leone?</p>
+        <label for="answer21">Answer: </label>
+        <input type="text" id="answer21" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa21-btn" onclick="answer21()">Check answer</button>
+        <h5 id="answer21-output"></h5>
+      <hr>
+        <p>2️⃣2️⃣ What is the national currency of Sierra Leone?</p>
+        <label for="answer22">Answer: </label>
+        <input type="text" id="answer22" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa22-btn" onclick="answer22()">Check answer</button>
+        <h5 id="answer22-output"></h5>
+      <hr>
+        <p>2️⃣3️⃣ What is the traditional Sierra Leonean dish made from cassava leaves?</p>
+        <label for="answer23">Answer: </label>
+        <input type="text" id="answer23" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa23-btn" onclick="answer23()">Check answer</button>
+        <h5 id="answer23-output"></h5>
+      <hr> 
+        <p>2️⃣4️⃣ What is the name of the famous masked festival in Sierra Leone?</p>
+        <label for="answer24">Answer: </label>
+        <input type="text" id="answer24" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa24-btn" onclick="answer24()">Check answer</button>
+        <h5 id="answer24-output"></h5>
+      <hr> 
+        <p>2️⃣5️⃣ What sport is the most popular in Sierra Leone?</p>
+        <label for="answer25">Answer: </label>
+        <input type="text" id="answer25" required placeholder="Type in your answer">
+        <button class="answer-btns" id="ansa25-btn" onclick="answer25()">Check answer</button>
+        <h5 id="answer25-output"></h5>
+      <hr>
+        <p>2️⃣6️⃣ Who is a famous Sierra Leonean writer known for A Long Way Gone?</p>
+        <label for="answer26">Answer: </label>
+        <input type="text" id="answer26" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa26-btn" onclick="answer26()">Check answer</button>
+        <h5 id="answer26-output"></h5>
+      <hr> 
+        <p>2️⃣7️⃣ What is the name of Sierra Leone’s national football team?</p>
+        <label for="answer27">Answer: </label>
+        <input type="text" id="answer27" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa27-btn" onclick="answer27()">Check answer</button>
+        <h5 id="answer27-output"></h5>
+      <hr>
+        <p>2️⃣8️⃣ What is a common greeting in Krio?</p>
+        <label for="answer28">Answer: </label>
+        <input type="text" id="answer28" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa28-btn" onclick="answer28()">Check answer</button>
+        <h5 id="answer28-output"></h5>
+      <hr>  
+        <p>2️⃣9️⃣ What is the name of the traditional woven cloth from Sierra Leone?</p>
+        <label for="answer29">Answer: </label>
+        <input type="text" id="answer29" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa29-btn" onclick="answer29()">Check answer</button>
+        <h5 id="answer29-output"></h5>
+      <hr>
+        <p>3️⃣0️⃣ What is the largest ethnic group in Sierra Leone?</p>
+        <label for="answer30">Answer: </label>
+        <input type="text" id="answer30" required placeholder="Type in your answer" class="inputs">
+        <button class="answer-btns" id="ansa30-btn" onclick="answer30()">Check answer</button>
+        <h5 id="answer30-output"></h5>
+      <hr>        
+      </details>
+      <button id="score-table-btn" class="btns hidden" onclick="registered2()">View Participants</button>
+    </section>
+    <section id="denied-container" class="hidden">
+      <div>
+      <div class="divs">
+        <button class="close-btns" onclick="closeAlertDialog()">❌</button>
+      </div>
+      <h4 id="alert-h4">🚨 Access Denied! 🚨</h4>
+      <p class="alert-para">This quiz is designed only for participants aged 18 and below.</p>
+      <p class="alert-para">Unfortunately, you are above the age limit and cannot take part.</p>
+      </div>
+    </section>
+    <section id="table-section" class="hidden">
+      <div id="quiz-close-div" class="divs">
+        <button id="quiz-close-btn" class="close-btns" onclick="closeTable()">❌</button>
+      </div>
+      <h3 id="score-h3">Participants</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</td>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <footer>
+    <p>2025 Sheku A. Kamara &copy;</p>
+  </footer>
+  <script src="quiz.js"></script>
+</body>
+</html>
